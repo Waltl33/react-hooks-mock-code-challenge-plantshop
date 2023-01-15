@@ -1,10 +1,10 @@
 import React from "react";
 
-function Search({searchItems, onChangeSearchItems}) {
+function Search({searchItems, updateSearch}) {
 
   const handleChange = (e) => {
-    onChangeSearchItems(e.target.value)
-    if(searchItems)
+    
+    
   }
   
   return (
@@ -13,8 +13,9 @@ function Search({searchItems, onChangeSearchItems}) {
       <input
         type="text"
         id="search"
+        value = {searchItems}
         placeholder="Type a name to search..."
-        onChange={(e) => {console.log("Searching...")}}
+        onChange={(e)=>updateSearch(e.target.value)}
       />
     </div>
   );

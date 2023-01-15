@@ -6,7 +6,8 @@ import Search from "./Search";
 function PlantPage() {
 
 const [plants, setPlants] = useState([])
-const [searchItems, setSearchItems] = useState([])
+const [searchItems, setSearchItems] = useState("")
+// make POST request here, so we can update plants state directly
 
   useEffect(() => {
     fetch (" http://localhost:6001/plants ")
@@ -14,15 +15,30 @@ const [searchItems, setSearchItems] = useState([])
       .then(setPlants)
   }, [])
 
+  const addNewPlant = (myPlant) => {
+    setPlants([...plants, myPlant])
+  }
+
+  const updateSearch = (searchInput) => {
+   setSearchItems(searchInput)
+  }
+
+let filteredPlants = plants.filter(plant => plant.name.toLowerCase().includes(searchItems.toLowerCase()))
+// const addNewPlant = () => {
+
+//   console.log("new Plant")
+// }
   return (
     <main>
-      <NewPlantForm />
+      <NewPlantForm 
+      addNewPlant = {addNewPlant}
+      />
       <Search 
         searchItems={searchItems}
-        onChangeSearchItems={setSearchItems}
+        updateSearch={updateSearch}
       />
       <PlantList 
-        plants={plants}
+        plants={filteredPlants}
       />
     </main>
   );

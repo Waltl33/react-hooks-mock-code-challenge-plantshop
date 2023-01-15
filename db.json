@@ -41,6 +41,24 @@
       "name": "Fiddle Leaf Fig",
       "image": "./images/fiddle-leaf-fig.jpg",
       "price": 55
+    },
+    {
+      "name": "df",
+      "image": "dff",
+      "price": "",
+      "id": 8
+    },
+    {
+      "name": "eeg",
+      "image": "gg",
+      "price": "",
+      "id": 9
+    },
+    {
+      "name": "gff",
+      "image": "gff",
+      "price": "1424",
+      "id": 10
     }
   ]
 }
